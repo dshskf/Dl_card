@@ -8,10 +8,10 @@ import tensorflow as tf
 
 resize_method = Image.ANTIALIAS
 
-path_foto= r"C:\Users\Administrator\Desktop\AI-data\Kartu\Foto"
-path_scan= r"C:\Users\Administrator\Desktop\AI-data\Kartu\Scan"
+path_foto= r"C:\Users\Administrator\Desktop\AI-data\Kartu\Foto" #Ganti ama directory folder data foto
+path_scan= r"C:\Users\Administrator\Desktop\AI-data\Kartu\Scan" #Ganti ama directory folder data scan
 
-saved_path=r"C:\Users\Administrator\Desktop\AI-data\Dataset"
+saved_path=r"C:\Users\Administrator\Desktop\AI-data\Dataset" #directory lu taroh hasil outputnya 
 
 foto_len= len(os.listdir(path_foto))
 scan_len= len(os.listdir(path_scan))
@@ -19,8 +19,8 @@ scan_len= len(os.listdir(path_scan))
 set_width=300
 set_height=300
 
-"""
-Resize image
+
+#Resize image
 extensions= ['PNG','JPG','JPEG']
 
 def adjusted_size(width,height):
@@ -41,13 +41,13 @@ def converting(img_num,dir):
                     
 converting(0,path_foto)                    
 converting(foto_len,path_scan)
-"""
+
 
 """Data Preprocessing"""
 #Make a list of image data
 getImg = sorted(os.listdir(saved_path),key=len)
 immatrix = np.array(
-        [np.array(Image.open(saved_path + '\\' + im2).convert(mode='L')).flatten() for im2 in getImg],
+        [np.array(Image.open(saved_path + '\\' + img_name).convert(mode='L')).flatten() for img_name in getImg],
         order='f'
         )
 
