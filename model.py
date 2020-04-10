@@ -111,7 +111,7 @@ model.add(Dense(2, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer=SGD(lr=0.01), metrics=['accuracy'])
 
 history = model.fit(x_train, y_train,
-          batch_size=10,
-          epochs=20,
+          batch_size=5,
+          epochs=100,
           verbose=1,
           validation_data=(x_test, y_test))
